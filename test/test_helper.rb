@@ -8,6 +8,7 @@ class ActiveSupport::TestCase
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   # fixtures :all
+  require "fixtures/amount_fixtures.rb"
 
   # Add more helper methods to be used by all tests here...
 end
