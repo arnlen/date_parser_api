@@ -28,7 +28,7 @@ class PaymentMethodsControllerTest < ActionDispatch::IntegrationTest
 
   test "CB" do
     source_payment_method = 'CB'
-    expected_response[:payment_method] = 'cb'
+    expected_response[:payment_method] = 'CB'
 
     get payment_methods_parse_url, params: { payment_method: source_payment_method }
     json_response = JSON.parse(response.body)
@@ -39,7 +39,7 @@ class PaymentMethodsControllerTest < ActionDispatch::IntegrationTest
 
   test "Prélèvement" do
     source_payment_method = 'Prélèvement'
-    expected_response[:payment_method] = 'prélèvement'
+    expected_response[:payment_method] = 'Prélèvement'
 
     get payment_methods_parse_url, params: { payment_method: source_payment_method }
     json_response = JSON.parse(response.body)
@@ -50,7 +50,7 @@ class PaymentMethodsControllerTest < ActionDispatch::IntegrationTest
 
   test "Virement bancaire" do
     source_payment_method = 'Virement bancaire'
-    expected_response[:payment_method] = 'virement'
+    expected_response[:payment_method] = 'Virement'
 
     get payment_methods_parse_url, params: { payment_method: source_payment_method }
     json_response = JSON.parse(response.body)

@@ -16,9 +16,9 @@ class PaymentMethodsController < ApplicationController
 
     source_payment_method.downcase!
 
-    return 'cb' if PaymentMethods::CB_METHOD.include?(source_payment_method)
-    return 'virement' if PaymentMethods::TRANSFER_METHOD.include?(source_payment_method)
-    return 'prélèvement' if PaymentMethods::DEBIT_METHOD.include?(source_payment_method)
+    return 'CB' if PaymentMethods::CB_METHOD.include?(source_payment_method)
+    return 'Virement' if PaymentMethods::TRANSFER_METHOD.include?(source_payment_method)
+    return 'Prélèvement' if PaymentMethods::DEBIT_METHOD.include?(source_payment_method)
 
     ''
   end
