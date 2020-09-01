@@ -12,15 +12,23 @@ class PaymentMethodsController < ApplicationController
   private
 
   def find_payment_method(source_payment_method)
-    return '' unless source_payment_method
 
-    source_payment_method.downcase!
+    sanitized_payment_method = sanitize_payment_method(source_payment_method)
 
-    return 'CB' if PaymentMethods::CB_METHOD.include?(source_payment_method)
-    return 'Virement' if PaymentMethods::TRANSFER_METHOD.include?(source_payment_method)
-    return 'Prélèvement' if PaymentMethods::DEBIT_METHOD.include?(source_payment_method)
+    return 'CB' if PaymentMethods::CB_METHOD.include?(sanitized_payment_method)
+    return 'Virement' if PaymentMethods::TRANSFER_METHOD.include?(sanitized_payment_method)
+    return 'Prélèvement' if PaymentMethods::DEBIT_METHOD.include?(sanitized_payment_method)
 
     ''
+  end
+
+  def sanitize_payment_method(source_payment_method)
+    return '' unless source_payment_method
+
+    source_payment_method.downcase.
+      gsub('-', '').
+      gsub('.', '').
+      gsub('·', '').strip
   end
 
   def payment_method_params

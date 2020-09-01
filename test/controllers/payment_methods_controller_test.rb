@@ -37,6 +37,17 @@ class PaymentMethodsControllerTest < ActionDispatch::IntegrationTest
     assert_equal expected_response[:payment_method], json_response['payment_method']
   end
 
+  test "··· 4660" do
+    source_payment_method = '··· 4660'
+    expected_response[:payment_method] = 'CB'
+
+    get payment_methods_parse_url, params: { payment_method: source_payment_method }
+    json_response = JSON.parse(response.body)
+
+    assert_response :success
+    assert_equal expected_response[:payment_method], json_response['payment_method']
+  end
+
   test "Prélèvement" do
     source_payment_method = 'Prélèvement'
     expected_response[:payment_method] = 'Prélèvement'

@@ -8,7 +8,8 @@ module PaymentMethods
     'card',
     'visa',
     'credit card',
-    'carte de crédit'
+    'carte de crédit',
+    '4660'
   ]
 
   TRANSFER_METHOD = [
@@ -22,7 +23,8 @@ module PaymentMethods
     'prélèvement automatique',
     'prélevé',
     'débité',
-    'débité automatiquement'
+    'débité automatiquement',
+    'debited'
   ]
 
 end
