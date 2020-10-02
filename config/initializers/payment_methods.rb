@@ -15,15 +15,19 @@ module PaymentMethods
   TRANSFER_METHOD = [
     'virement',
     'virement bancaire',
-    'rib'
+    'rib',
+    'iban'
   ]
 
   DEBIT_METHOD = [
     'prélèvement',
     'prélèvement automatique',
     'prélevé',
+    'prélevée',
     'débité',
+    'débitée',
     'débité automatiquement',
+    'débitée automatiquement',
     'debited'
   ]
 
