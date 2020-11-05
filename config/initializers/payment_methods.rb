@@ -9,7 +9,8 @@ module PaymentMethods
     'visa',
     'credit card',
     'carte de crédit',
-    '4660'
+    '4660',
+    'paypal'
   ]
 
   TRANSFER_METHOD = [
