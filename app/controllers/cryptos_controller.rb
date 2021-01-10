@@ -25,10 +25,13 @@ class CryptosController < ApplicationController
 
     body = JSON.parse(response.body)
 
-    quotes = {}
+    quotes = []
 
     body['data'].each do |token_data|
-      quotes["#{token_data[1]['symbol']}"] = token_data[1]['quote']['EUR']['price']
+      quotes.append({
+        'symbol': "#{token_data[1]['symbol']}",
+        'price': token_data[1]['quote']['EUR']['price']
+      })
     end
 
     quotes
