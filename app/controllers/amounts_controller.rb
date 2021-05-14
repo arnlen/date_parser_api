@@ -36,7 +36,7 @@ class AmountsController < ApplicationController
   end
 
   def convert_usd_to_euro(source_amount)
-    uri = URI('https://api.exchangeratesapi.io/latest?base=USD')
+    uri = URI('https://api.ratesapi.io/api/latest?base=USD&symbols=EUR')
     response = Net::HTTP.get_response(uri)
     body = JSON.parse(response.body)
     conversion_rate = body['rates']['EUR']
