@@ -29,20 +29,10 @@ class AmountsController < ApplicationController
     # Convert USD to EUR
     if source_amount.include?('$') || source_amount.include?('usd')
       source_amount = source_amount.gsub('$', '').gsub('usd', '')
-      source_amount = convert_usd_to_euro(source_amount)
+      source_amount = QuoteService.convert_usd_to_eur(source_amount)
     end
 
     source_amount
-  end
-
-  def convert_usd_to_euro(source_amount)
-    uri = URI('https://api.ratesapi.io/api/latest?base=USD&symbols=EUR')
-    response = Net::HTTP.get_response(uri)
-    body = JSON.parse(response.body)
-    conversion_rate = body['rates']['EUR']
-
-    converted_amount = conversion_rate * source_amount.to_f
-    converted_amount.round(2).to_s
   end
 
   def amount_params
