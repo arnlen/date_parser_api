@@ -10,14 +10,15 @@ module PaymentMethods
     'credit card',
     'carte de crédit',
     '4660',
-    'paypal'
+    'paypal',
+    'Pay online',
   ]
 
   TRANSFER_METHOD = [
     'virement',
     'virement bancaire',
     'rib',
-    'iban'
+    'iban',
   ]
 
   DEBIT_METHOD = [
@@ -29,7 +30,7 @@ module PaymentMethods
     'débitée',
     'débité automatiquement',
     'débitée automatiquement',
-    'debited'
+    'debited',
   ]
 
 end
