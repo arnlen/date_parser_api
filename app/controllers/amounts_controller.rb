@@ -28,7 +28,7 @@ class AmountsController < ApplicationController
 
     # Convert USD to EUR
     if source_amount.include?('$') || source_amount.include?('usd')
-      source_amount = source_amount.gsub('$', '').gsub('usd', '')
+      source_amount = source_amount.gsub('$', '').gsub('usd', '').strip
       source_amount = QuoteService.convert_usd_to_eur(source_amount)
     end
 
